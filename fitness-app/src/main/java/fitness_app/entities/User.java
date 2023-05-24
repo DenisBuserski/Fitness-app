@@ -27,6 +27,7 @@ public class User {
     private String lastName;
     @Age
     private int age;
+    private Diary diary;
     
 
 }
