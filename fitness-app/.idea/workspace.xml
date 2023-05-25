@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25ba11f4-ff1d-402a-8aee-960462b94ddd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/fitness_app/annotations/Age/AgeValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/annotations/Age.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/annotations/Age/Age.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/annotations/Age/Age.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/annotations/Age/Age.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/annotations/Age/AgeValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/annotations/Age/AgeValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/exception_messages/AgeExceptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/exception_messages/AgeExceptions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +46,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="fitness_app.exception_messages" />
       <recent name="fitness_app.services" />
     </key>
   </component>

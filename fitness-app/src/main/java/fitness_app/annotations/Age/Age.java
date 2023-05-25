@@ -14,9 +14,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Age {
-    String message() default AgeExceptions.INVALID_EMAIL_FORMAT;
+    String message() default AgeExceptions.INVALID_AGE;
 
-    int minUserNameLength() default 1;
+    int minAge() default 10;
 
-    int maxUserNameLength() default 50;
+    int maxAge() default 100;
 }
