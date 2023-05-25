@@ -7,6 +7,7 @@ import fitness_app.annotations.Username;
 import fitness_app.enums.UserType;
 
 import javax.persistence.*;
+import java.util.HashMap;
 
 @Entity(name = "users")
 public class User {
@@ -28,6 +29,15 @@ public class User {
     @Age
     private int age;
     private Diary diary;
-    
 
+    public User() {}
+    public User(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.userType = userType;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
 }
