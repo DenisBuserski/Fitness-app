@@ -21,6 +21,7 @@ public class User {
     @Email
     private String email;
     @Column(name = "user_type")
+    @Enumerated(value = EnumType.STRING) // Will show the value name; Example - ADMIN
     private UserType userType;
     @Column(name = "first_name")
     private String firstName;
@@ -28,7 +29,7 @@ public class User {
     private String lastName;
     @Age
     private int age;
-    private Diary diary;
+    // private Diary diary;
 
     public User() {}
     public User(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
