@@ -16,9 +16,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void createUser(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
         int validAge = Age.AgeValidator.isValid(age);
-        if (validAge == 1) {
-            System.out.println(AgeExceptions.INVALID_AGE_MIN_MAX);
-        } else if (validAge == 2) {
+        if (validAge == 1 || validAge == 2) {
             System.out.println(AgeExceptions.INVALID_AGE_MIN_MAX);
         } else {
             User user = new User(username, password, email, userType, firstName, lastName, age);
