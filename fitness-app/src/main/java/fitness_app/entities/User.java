@@ -1,13 +1,12 @@
 package fitness_app.entities;
 
-import fitness_app.annotations.Age;
+import fitness_app.annotations.Age.Age;
 import fitness_app.annotations.Email;
 import fitness_app.annotations.Password;
 import fitness_app.annotations.Username;
 import fitness_app.enums.UserType;
 
 import javax.persistence.*;
-import java.util.HashMap;
 
 @Entity(name = "users")
 public class User {
