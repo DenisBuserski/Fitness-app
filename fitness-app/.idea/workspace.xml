@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25ba11f4-ff1d-402a-8aee-960462b94ddd" name="Changes" comment="" />
+    <list default="true" id="25ba11f4-ff1d-402a-8aee-960462b94ddd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/fitness_app/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/entities/User.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
