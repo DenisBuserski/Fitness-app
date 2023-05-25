@@ -1,22 +1,26 @@
-package fitness_app.annotations.Age;
+package fitness_app.annotations;
 
 import fitness_app.exception_messages.AgeExceptions;
-import org.springframework.stereotype.Component;
 
-import javax.validation.Constraint;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Component
-@Constraint(validatedBy = AgeValidator.class)
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Age {
     String message() default AgeExceptions.INVALID_AGE;
 
-    int minAge() default 10;
+    class AgeValidator {
+        public static int isValid(int age) {
+            if (age < 10) {
+                return 1;
+            } else if (age > 100) {
+                return 2;
+            }
+            return age;
+        }
 
-    int maxAge() default 100;
+    }
 }
