@@ -17,6 +17,6 @@ public final class UsernameExceptions {
     public static final String AGE_TOO_HIGH = "Age cannot be more than 120";
     public static final String USERNAME_INCORRECT_LENGTH = "Username length should be between 4 and 30 symbols";
 
-    private TextConstants() {
+    private UsernameExceptions() {
     }
 }
