@@ -17,7 +17,7 @@ public class ConsoleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.userService.createUser("test-username", "test-password", "test-email", UserType.ADMIN, "test-firstName", "test-lastName", 20);
+        this.userService.createUser("test-username", "test-password", "test_email@test.com", UserType.ADMIN, "test-firstName", "test-lastName", 20);
 
 
     }
