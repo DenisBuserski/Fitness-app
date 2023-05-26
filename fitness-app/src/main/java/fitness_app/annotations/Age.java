@@ -13,7 +13,7 @@ public @interface Age {
     String message() default AgeExceptions.INVALID_AGE;
 
     class AgeValidator {
-        public static int isValid(int age) {
+        public static int isValidAge(int age) {
             if (age < 10) {
                 return 1;
             } else if (age > 100) {
