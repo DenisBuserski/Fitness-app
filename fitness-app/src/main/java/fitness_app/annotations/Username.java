@@ -1,7 +1,6 @@
 package fitness_app.annotations;
 
-import fitness_app.exception_messages.AgeExceptions;
-import fitness_app.services.UserService;
+import fitness_app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.annotation.ElementType;
