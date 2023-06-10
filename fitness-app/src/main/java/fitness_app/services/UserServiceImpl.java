@@ -1,8 +1,6 @@
 package fitness_app.services;
 
-import fitness_app.annotations.Age;
-import fitness_app.annotations.Email;
-import fitness_app.annotations.Password;
+import fitness_app.annotations.*;
 import fitness_app.entities.User;
 import fitness_app.enums.UserType;
 import fitness_app.exception_messages.AgeExceptions;
@@ -20,13 +18,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
-        int validUsername = this.countByUsername(username);
+        boolean validUsername = new UsernameValidator().isValidUsername(username);
         boolean validPassword = Password.PasswordValidator.isValidPassword(password);
         boolean validEmail = Email.EmailValidator.isValidEmail(email);
         boolean validAge = Age.AgeValidator.isValidAge(age);
 
 
-        if (validUsername == 1) { // Validate username
+        if (!validUsername) { // Validate username
             System.out.println(UsernameExceptions.USERNAME_ALREADY_EXISTS);
         } else if (!validPassword) { // Validate password
             System.out.println(PasswordExceptions.INVALID_PASSWORD);
@@ -40,10 +38,5 @@ public class UserServiceImpl implements UserService {
         }
 
 
-    }
-
-    @Override
-    public int countByUsername(String username) {
-        return this.userRepository.countByUsername(username);
     }
 }
