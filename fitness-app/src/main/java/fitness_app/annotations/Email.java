@@ -13,8 +13,7 @@ public @interface Email {
 
     class EmailValidator {
         public static boolean isValidEmail(String email) {
-
-            String pattern = "^[a-zA-Z0-9]+([.\\-_][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.-]?[a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})*$";
+            String pattern = "^[a-zA-Z0-9]+([.\\-_][a-zA-Z0-9]+)*@[a-zA-Z0-9]+([.\\-]?[a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}(\\.[a-zA-Z]{2,})*$";
             Pattern regex = Pattern.compile(pattern);
             Matcher matcher = regex.matcher(email);
             return matcher.matches();

@@ -12,5 +12,13 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Username {
 
+    class UsernameValidator {
+        public static boolean isValidAge(int age) {
+            if (age < 10 || age > 100) {
+                return false;
+            }
+            return true;
+        }
 
+    }
 }

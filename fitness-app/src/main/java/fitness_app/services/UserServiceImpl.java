@@ -21,27 +21,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public void createUser(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
         int validUsername = this.countByUsername(username);
-        // validPassword
         boolean validPassword = Password.PasswordValidator.isValidPassword(password);
         boolean validEmail = Email.EmailValidator.isValidEmail(email);
         boolean validAge = Age.AgeValidator.isValidAge(age);
 
 
-        if (!validAge) { // Validate age
-            System.out.println(AgeExceptions.INVALID_AGE);
-        } else if (validUsername == 1) { // Validate username
+        if (validUsername == 1) { // Validate username
             System.out.println(UsernameExceptions.USERNAME_ALREADY_EXISTS);
+        } else if (!validPassword) { // Validate password
+            System.out.println(PasswordExceptions.INVALID_PASSWORD);
         } else if (!validEmail) { // Validate email
             System.out.println(EmailExceptions.INVALID_EMAIL);
-        } else if (validAge == age && validUsername == 0 && validEmail) { // Create user successfully
+        } else if (!validAge) { // Validate age
+            System.out.println(AgeExceptions.INVALID_AGE);
+        } else { // Create user successfully
             User user = new User(username, password, email, userType, firstName, lastName, age);
             this.userRepository.save(user);
-        } else if (!validPassword) {
-            System.out.println(PasswordExceptions.INVALID_PASSWORD);
         }
-
-
-
 
 
     }
