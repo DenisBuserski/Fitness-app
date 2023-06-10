@@ -10,16 +10,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Age {
-    String message() default AgeExceptions.INVALID_AGE;
 
     class AgeValidator {
-        public static int isValidAge(int age) {
-            if (age < 10) {
-                return 1;
-            } else if (age > 100) {
-                return 2;
+        public static boolean isValidAge(int age) {
+            if (age < 10 || age > 100) {
+                return false;
             }
-            return age;
+            return true;
         }
 
     }
