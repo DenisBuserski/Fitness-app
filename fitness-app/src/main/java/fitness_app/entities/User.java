@@ -40,4 +40,8 @@ public class User {
         this.lastName = lastName;
         this.age = age;
     }
+
+    public String getUsername() {
+        return username;
+    }
 }

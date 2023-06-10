@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
         boolean validAge = Age.AgeValidator.isValidAge(age);
 
 
-        if (!validUsername) { // Validate username
+        if (!validUsername) { // Validate username ** NOT READY **
             System.out.println(UsernameExceptions.USERNAME_ALREADY_EXISTS);
         } else if (!validPassword) { // Validate password
             System.out.println(PasswordExceptions.INVALID_PASSWORD);

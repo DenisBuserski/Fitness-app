@@ -1,5 +1,6 @@
 package fitness_app.annotations;
 
+import fitness_app.entities.User;
 import fitness_app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,10 +24,7 @@ public class UsernameValidator implements ConstraintValidator<Username, String> 
 
 
     public boolean isValidUsername(String username) {
-        boolean usernameExists = this.userRepository.findByUsername(username);
-        if (usernameExists) {
-            return false;
-        }
-        return true;
+        return false;
+
     }
 }
