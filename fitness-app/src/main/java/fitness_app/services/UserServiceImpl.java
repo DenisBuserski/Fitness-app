@@ -38,6 +38,7 @@ public class UserServiceImpl implements UserService {
         } else { // Create user successfully
             User user = new User(username, password, email, userType, firstName, lastName, age);
             this.userRepository.save(user);
+            System.out.println("Username " + username + " successfully created!");
         }
 
 
