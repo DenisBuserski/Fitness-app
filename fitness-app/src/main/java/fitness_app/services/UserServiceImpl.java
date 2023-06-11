@@ -13,12 +13,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
     @Autowired
-    private UserRepository userRepository;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public void createUser(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
-        boolean validUsername = new UsernameValidator().isValidUsername(username);
+        boolean validUsername = this.userRepository.countByUsername(username) == 0;
         boolean validPassword = Password.PasswordValidator.isValidPassword(password);
         boolean validEmail = Email.EmailValidator.isValidEmail(email);
         boolean validAge = Age.AgeValidator.isValidAge(age);
