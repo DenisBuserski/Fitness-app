@@ -1,6 +1,7 @@
 package fitness_app.services;
 
 import fitness_app.annotations.*;
+import fitness_app.entities.Diary;
 import fitness_app.entities.User;
 import fitness_app.enums.UserType;
 import fitness_app.exception_messages.AgeExceptions;
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void createDiary(String name, User user) {
-
+    public Diary createDiary(String name, User user) {
+        return null;
     }
 }

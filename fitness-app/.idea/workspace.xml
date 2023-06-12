@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25ba11f4-ff1d-402a-8aee-960462b94ddd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/ConsoleRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/ConsoleRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/entities/Diary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/entities/Diary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fitness_app/services/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fitness_app/services/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
