@@ -8,6 +8,7 @@ import fitness_app.exception_messages.AgeExceptions;
 import fitness_app.exception_messages.EmailExceptions;
 import fitness_app.exception_messages.PasswordExceptions;
 import fitness_app.exception_messages.UsernameExceptions;
+import fitness_app.repositories.DiaryRepository;
 import fitness_app.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +16,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final DiaryRepository diaryRepository;
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, DiaryRepository diaryRepository) {
         this.userRepository = userRepository;
+        this.diaryRepository = diaryRepository;
     }
 
     @Override
-    public void createUser(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
+    public User createUser(String username, String password, String email, UserType userType, String firstName, String lastName, int age) throws Exception {
         boolean validUsername = this.userRepository.countByUsername(username) == 0;
         boolean validPassword = Password.PasswordValidator.isValidPassword(password);
         boolean validEmail = Email.EmailValidator.isValidEmail(email);
@@ -29,24 +32,24 @@ public class UserServiceImpl implements UserService {
 
 
         if (!validUsername) { // Validate username
-            System.out.println(UsernameExceptions.USERNAME_ALREADY_EXISTS);
+            throw new Exception(UsernameExceptions.USERNAME_ALREADY_EXISTS);
         } else if (!validPassword) { // Validate password
-            System.out.println(PasswordExceptions.INVALID_PASSWORD);
+            throw new Exception(PasswordExceptions.INVALID_PASSWORD);
         } else if (!validEmail) { // Validate email
-            System.out.println(EmailExceptions.INVALID_EMAIL);
+            throw new Exception(EmailExceptions.INVALID_EMAIL);
         } else if (!validAge) { // Validate age
-            System.out.println(AgeExceptions.INVALID_AGE);
+            throw new Exception(AgeExceptions.INVALID_AGE);
         } else { // Create user successfully
             User user = new User(username, password, email, userType, firstName, lastName, age);
             this.userRepository.save(user);
-            System.out.println("Username " + username + " successfully created!");
+            return user;
         }
-
-
     }
 
     @Override
     public Diary createDiary(String name, User user) {
-        return null;
+        Diary diary = new Diary(name, user);
+        this.diaryRepository.save(diary);
+        return diary;
     }
 }

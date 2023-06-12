@@ -1,6 +1,8 @@
 package fitness_app.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "diaries")
 public class Diary {
@@ -13,10 +15,13 @@ public class Diary {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    private Workout workout;
+    private List<Workout> workout;
 
     public Diary(){}
-    public Diary(String name) {
+    public Diary(String name, User user) {
         this.name = name;
+        this.user = user;
+        this.workout = new ArrayList<>();
+
     }
 }
