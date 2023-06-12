@@ -19,7 +19,7 @@ public class ConsoleRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         this.userService.createUser("test-username", "test-password", "test_email@test.com", UserType.CLIENT, "test-firstName", "test-lastName", 20);
-
+        // this.userService.createDiary("test-diary",);
 
     }
 }

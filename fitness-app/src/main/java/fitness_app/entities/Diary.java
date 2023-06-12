@@ -13,6 +13,8 @@ public class Diary {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    private Workout workout;
+
     public Diary(){}
     public Diary(String name) {
         this.name = name;
