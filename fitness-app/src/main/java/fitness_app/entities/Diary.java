@@ -1,9 +1,6 @@
 package fitness_app.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "diaries")
 public class Diary {
@@ -11,4 +8,13 @@ public class Diary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    public Diary(){}
+    public Diary(String name) {
+        this.name = name;
+    }
 }

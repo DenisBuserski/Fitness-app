@@ -30,9 +30,15 @@ public class User {
     private String lastName;
     @Age
     private int age;
+    @OneToMany(mappedBy = "user",
+            targetEntity = Diary.class,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     private List<Diary> diary;
 
-    public User() {}
+    public User() {
+    }
+
     public User(String username, String password, String email, UserType userType, String firstName, String lastName, int age) {
         this.username = username;
         this.password = password;

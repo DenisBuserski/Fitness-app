@@ -1,5 +1,6 @@
 package fitness_app;
 
+import fitness_app.entities.User;
 import fitness_app.enums.UserType;
 import fitness_app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
