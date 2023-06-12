@@ -15,6 +15,7 @@ public class Diary {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    @Transient
     private List<Workout> workout;
 
     public Diary(){}
