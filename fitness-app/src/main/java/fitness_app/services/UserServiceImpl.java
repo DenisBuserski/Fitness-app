@@ -2,6 +2,7 @@ package fitness_app.services;
 
 import fitness_app.annotations.*;
 import fitness_app.entities.Diary;
+import fitness_app.entities.ExerciseInfo;
 import fitness_app.entities.User;
 import fitness_app.entities.Workout;
 import fitness_app.enums.Exercise;
@@ -11,21 +12,26 @@ import fitness_app.exception_messages.EmailExceptions;
 import fitness_app.exception_messages.PasswordExceptions;
 import fitness_app.exception_messages.UsernameExceptions;
 import fitness_app.repositories.DiaryRepository;
+import fitness_app.repositories.ExerciseInfoRepository;
 import fitness_app.repositories.UserRepository;
 import fitness_app.repositories.WorkoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalTime;
 
 @Service
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final DiaryRepository diaryRepository;
     private final WorkoutRepository workoutRepository;
+    private final ExerciseInfoRepository exerciseInfoRepository;
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, DiaryRepository diaryRepository, WorkoutRepository workoutRepository) {
+    public UserServiceImpl(UserRepository userRepository, DiaryRepository diaryRepository, WorkoutRepository workoutRepository, ExerciseInfoRepository exerciseInfoRepository) {
         this.userRepository = userRepository;
         this.diaryRepository = diaryRepository;
         this.workoutRepository = workoutRepository;
+        this.exerciseInfoRepository = exerciseInfoRepository;
     }
 
     @Override
@@ -69,5 +75,18 @@ public class UserServiceImpl implements UserService {
     public void addWorkout(Diary diary, Workout workout) {
         diary.getWorkout().add(workout);
         this.diaryRepository.save(diary);
+    }
+
+    @Override
+    public ExerciseInfo addExerciseInfo(int set, int reps, double kg, LocalTime rest) {
+        ExerciseInfo exerciseInfo = new ExerciseInfo(set, reps, kg, rest);
+        this.exerciseInfoRepository.save(exerciseInfo);
+        return exerciseInfo;
+    }
+
+    @Override
+    public void addExerciseInfo(Workout workout, ExerciseInfo exerciseInfo) {
+        workout.getExerciseInfo().add(exerciseInfo);
+        this.workoutRepository.save(workout);
     }
 }

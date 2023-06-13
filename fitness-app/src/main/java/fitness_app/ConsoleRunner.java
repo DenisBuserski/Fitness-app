@@ -1,6 +1,7 @@
 package fitness_app;
 
 import fitness_app.entities.Diary;
+import fitness_app.entities.ExerciseInfo;
 import fitness_app.entities.User;
 import fitness_app.entities.Workout;
 import fitness_app.enums.Exercise;
@@ -9,6 +10,8 @@ import fitness_app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalTime;
 
 @Component
 public class ConsoleRunner implements CommandLineRunner {
@@ -25,7 +28,11 @@ public class ConsoleRunner implements CommandLineRunner {
         Diary diary = this.userService.createDiary("test-diary", user);
 
         Workout workout = this.userService.createWorkout("test-workout", Exercise.SQUAT);
-        userService.addWorkout(diary, workout);
+        // ExerciseInfo exerciseInfo = this.userService.addExerciseInfo(1, 10, 100, LocalTime.now());
+        this.userService.addWorkout(diary, workout);
+        // this.userService.addExerciseInfo(workout, exerciseInfo);
+
+
 
     }
 }

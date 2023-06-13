@@ -3,6 +3,8 @@ package fitness_app.entities;
 import fitness_app.enums.Exercise;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "workouts")
 public class Workout {
@@ -15,7 +17,9 @@ public class Workout {
     @Enumerated(value = EnumType.STRING)
     private Exercise exercise;
 
-    // set -> reps -> kg -> rest
+    @OneToMany
+    private List<ExerciseInfo> exerciseInfo;
+
 
     public Workout() {
     }
@@ -23,5 +27,10 @@ public class Workout {
     public Workout(String name, Exercise exercise) {
         this.name = name;
         this.exercise = exercise;
+        this.exerciseInfo = new ArrayList<>();
+    }
+
+    public List<ExerciseInfo> getExerciseInfo() {
+        return exerciseInfo;
     }
 }
