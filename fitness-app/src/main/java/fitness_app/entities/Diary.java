@@ -15,7 +15,7 @@ public class Diary {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @Transient
+    @OneToMany
     private List<Workout> workout;
 
     public Diary(){}
@@ -23,6 +23,5 @@ public class Diary {
         this.name = name;
         this.user = user;
         this.workout = new ArrayList<>();
-
     }
 }
