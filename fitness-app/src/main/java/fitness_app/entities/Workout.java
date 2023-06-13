@@ -15,6 +15,8 @@ public class Workout {
     @Enumerated(value = EnumType.STRING)
     private Exercise exercise;
 
+    // set -> reps -> kg -> rest
+
     public Workout() {
     }
 
