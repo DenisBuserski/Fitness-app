@@ -25,7 +25,7 @@ public class ConsoleRunner implements CommandLineRunner {
         Diary diary = this.userService.createDiary("test-diary", user);
 
         Workout workout = this.userService.createWorkout("test-workout", Exercise.SQUAT);
-        diary.getWorkout().add(workout);
+        userService.addWorkout(diary, workout);
 
     }
 }

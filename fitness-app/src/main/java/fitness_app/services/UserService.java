@@ -12,4 +12,6 @@ public interface UserService {
     Diary createDiary(String name, User user);
 
     Workout createWorkout(String name, Exercise exercise);
+
+    void addWorkout(Diary diary, Workout workout);
 }

@@ -64,4 +64,10 @@ public class UserServiceImpl implements UserService {
         this.workoutRepository.save(workout);
         return workout;
     }
+
+    @Override
+    public void addWorkout(Diary diary, Workout workout) {
+        diary.getWorkout().add(workout);
+        this.diaryRepository.save(diary);
+    }
 }
