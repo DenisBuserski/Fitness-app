@@ -24,4 +24,8 @@ public class Diary {
         this.user = user;
         this.workout = new ArrayList<>();
     }
+
+    public List<Workout> getWorkout() {
+        return workout;
+    }
 }

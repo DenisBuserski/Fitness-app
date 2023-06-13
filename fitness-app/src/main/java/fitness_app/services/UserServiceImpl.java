@@ -3,6 +3,8 @@ package fitness_app.services;
 import fitness_app.annotations.*;
 import fitness_app.entities.Diary;
 import fitness_app.entities.User;
+import fitness_app.entities.Workout;
+import fitness_app.enums.Exercise;
 import fitness_app.enums.UserType;
 import fitness_app.exception_messages.AgeExceptions;
 import fitness_app.exception_messages.EmailExceptions;
@@ -10,6 +12,7 @@ import fitness_app.exception_messages.PasswordExceptions;
 import fitness_app.exception_messages.UsernameExceptions;
 import fitness_app.repositories.DiaryRepository;
 import fitness_app.repositories.UserRepository;
+import fitness_app.repositories.WorkoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +20,12 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final DiaryRepository diaryRepository;
+    private final WorkoutRepository workoutRepository;
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, DiaryRepository diaryRepository) {
+    public UserServiceImpl(UserRepository userRepository, DiaryRepository diaryRepository, WorkoutRepository workoutRepository) {
         this.userRepository = userRepository;
         this.diaryRepository = diaryRepository;
+        this.workoutRepository = workoutRepository;
     }
 
     @Override
@@ -51,5 +56,12 @@ public class UserServiceImpl implements UserService {
         Diary diary = new Diary(name, user);
         this.diaryRepository.save(diary);
         return diary;
+    }
+
+    @Override
+    public Workout createWorkout(String name, Exercise exercise) {
+        Workout workout = new Workout(name, exercise);
+        this.workoutRepository.save(workout);
+        return workout;
     }
 }

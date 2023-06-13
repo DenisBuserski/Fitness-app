@@ -1,6 +1,9 @@
 package fitness_app;
 
+import fitness_app.entities.Diary;
 import fitness_app.entities.User;
+import fitness_app.entities.Workout;
+import fitness_app.enums.Exercise;
 import fitness_app.enums.UserType;
 import fitness_app.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +22,10 @@ public class ConsoleRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         User user = this.userService.createUser("test-username", "test-password", "test_email@test.com", UserType.CLIENT, "test-firstName", "test-lastName", 20);
-        this.userService.createDiary("test-diary", user);
+        Diary diary = this.userService.createDiary("test-diary", user);
+
+        Workout workout = this.userService.createWorkout("test-workout", Exercise.SQUAT);
+        diary.getWorkout().add(workout);
 
     }
 }

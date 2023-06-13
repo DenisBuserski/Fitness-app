@@ -49,8 +49,4 @@ public class User {
         this.age = age;
         this.diary = new ArrayList<Diary>();
     }
-
-    public String getUsername() {
-        return username;
-    }
 }
