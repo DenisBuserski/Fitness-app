@@ -18,7 +18,6 @@ public interface UserService {
 
     void addWorkout(Diary diary, Workout workout);
 
-    ExerciseInfo addExerciseInfo(int set, int reps, double kg, LocalTime rest);
 
-    void addExerciseInfo(Workout workout, ExerciseInfo exerciseInfo);
+    ExerciseInfo addExerciseInfo(int set_number, int reps, double kg, LocalTime rest);
 }

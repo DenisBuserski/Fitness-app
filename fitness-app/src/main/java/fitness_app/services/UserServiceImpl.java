@@ -78,15 +78,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ExerciseInfo addExerciseInfo(int set, int reps, double kg, LocalTime rest) {
-        ExerciseInfo exerciseInfo = new ExerciseInfo(set, reps, kg, rest);
+    public ExerciseInfo addExerciseInfo(int set_number, int reps, double kg, LocalTime rest) {
+        ExerciseInfo exerciseInfo = new ExerciseInfo(set_number, reps, kg, rest);
         this.exerciseInfoRepository.save(exerciseInfo);
         return exerciseInfo;
     }
 
-    @Override
-    public void addExerciseInfo(Workout workout, ExerciseInfo exerciseInfo) {
-        workout.getExerciseInfo().add(exerciseInfo);
-        this.workoutRepository.save(workout);
-    }
 }

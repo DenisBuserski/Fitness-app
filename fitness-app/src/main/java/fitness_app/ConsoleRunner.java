@@ -26,12 +26,10 @@ public class ConsoleRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         User user = this.userService.createUser("test-username", "test-password", "test_email@test.com", UserType.CLIENT, "test-firstName", "test-lastName", 20);
         Diary diary = this.userService.createDiary("test-diary", user);
-
         Workout workout = this.userService.createWorkout("test-workout", Exercise.SQUAT);
-        // ExerciseInfo exerciseInfo = this.userService.addExerciseInfo(1, 10, 100, LocalTime.now());
         this.userService.addWorkout(diary, workout);
-        // this.userService.addExerciseInfo(workout, exerciseInfo);
 
+        ExerciseInfo exerciseInfo = this.userService.addExerciseInfo(1, 10, 100, LocalTime.now());
 
 
     }
