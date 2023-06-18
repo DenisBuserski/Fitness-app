@@ -27,6 +27,8 @@ public class ConsoleRunner implements CommandLineRunner {
         User user = this.userService.createUser("test-username", "test-password", "test_email@test.com", UserType.CLIENT, "test-firstName", "test-lastName", 20);
         Diary diary = this.userService.createDiary("test-diary", user);
         Workout workout = this.userService.createWorkout("test-workout", Exercise.SQUAT);
+        // TODO
+        // Correct Workout constructor
         this.userService.addWorkout(diary, workout);
 
         ExerciseInfo exerciseInfo = this.userService.createExerciseInfo(1, 10, 100, LocalTime.now());
