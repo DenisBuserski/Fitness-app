@@ -14,8 +14,11 @@ public class Workout {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String date;
+    @Column(name = "day_of_the_week")
     private DayOfWeek dayOfWeek;
+    @Column(name = "start_time")
     private LocalTime startTime;
+    @Column(name = "end_time")
     private LocalTime endTime;
     private LocalTime duration;
     @Column(name = "workout_name")
@@ -27,6 +30,7 @@ public class Workout {
     @OneToMany
     private List<ExerciseInfo> exerciseInfo;
     private String gaol;
+    @Column(name = "total_volume")
     private double totalVolume;
 
 
