@@ -17,13 +17,19 @@ public class Workout {
     @Enumerated(value = EnumType.STRING)
     private Exercise exercise;
 
+    @OneToMany
+    private List<ExerciseInfo> exerciseInfo;
+
 
     public Workout() {}
     public Workout(String name, Exercise exercise) {
         this.name = name;
         this.exercise = exercise;
-
+        this.exerciseInfo = new ArrayList<>();
     }
 
 
+    public List<ExerciseInfo> getExerciseInfo() {
+        return exerciseInfo;
+    }
 }
