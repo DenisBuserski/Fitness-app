@@ -17,7 +17,7 @@ public interface UserService {
 
     Diary createDiary(String name, User user);
 
-    Workout createWorkout(LocalDate date, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, String name, Exercise exercise, String goal, double totalVolume);
+    Workout createWorkout(LocalDate date, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, String name, Exercise exercise, String goal);
 
     void addWorkout(Diary diary, Workout workout);
 

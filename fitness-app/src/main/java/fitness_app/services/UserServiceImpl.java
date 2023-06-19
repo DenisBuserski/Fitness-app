@@ -68,8 +68,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Workout createWorkout(LocalDate date, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, String name, Exercise exercise, String goal, double totalVolume) {
-        Workout workout = new Workout(date, dayOfWeek, startTime, endTime, name, exercise, goal, totalVolume);
+    public Workout createWorkout(LocalDate date, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, String name, Exercise exercise, String goal) {
+        Workout workout = new Workout(date, dayOfWeek, startTime, endTime, name, exercise, goal);
         this.workoutRepository.save(workout);
         return workout;
     }

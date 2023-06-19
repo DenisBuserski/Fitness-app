@@ -39,7 +39,7 @@ public class Workout {
 
 
     public Workout() {}
-    public Workout(LocalDate date, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, String name, Exercise exercise, String goal, double totalVolume) {
+    public Workout(LocalDate date, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, String name, Exercise exercise, String goal) {
         this.date = date;
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
@@ -49,7 +49,16 @@ public class Workout {
         this.exercise = exercise;
         this.exerciseInfo = new ArrayList<>();
         this.goal = goal;
-        this.totalVolume = totalVolume;
+        this.totalVolume = calculateTotalVolume(this.exerciseInfo);
+    }
+
+    private double calculateTotalVolume(List<ExerciseInfo> exerciseInfo) {
+        double totalVolume = 0;
+        for (ExerciseInfo info : exerciseInfo) {
+            double current = info.getSetVolume();
+            totalVolume += current;
+        }
+        return totalVolume;
     }
 
     public List<ExerciseInfo> getExerciseInfo() {

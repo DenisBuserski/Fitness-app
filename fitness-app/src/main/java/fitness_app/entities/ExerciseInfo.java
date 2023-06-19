@@ -22,6 +22,9 @@ public class ExerciseInfo {
         this.kg = kg;
         this.rest = rest;
         this.setVolume = reps * kg;
+    }
 
+    public double getSetVolume() {
+        return setVolume;
     }
 }
