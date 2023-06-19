@@ -31,6 +31,8 @@ public class ConsoleRunner implements CommandLineRunner {
         Workout workout = this.userService.createWorkout(LocalDate.of(2000, 1, 1), DayOfWeek.MONDAY, LocalTime.now(), LocalTime.now(), "test-workout", Exercise.SQUAT, "test-goal");
         this.userService.addWorkout(diary, workout);
 
+        // TODO
+        // Workout volume
         ExerciseInfo exerciseInfo = this.userService.createExerciseInfo(1, 10, 100, LocalTime.now());
         this.userService.addExerciseInfo(workout, exerciseInfo);
 
