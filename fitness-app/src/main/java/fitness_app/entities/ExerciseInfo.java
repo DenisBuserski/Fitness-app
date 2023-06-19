@@ -12,6 +12,8 @@ public class ExerciseInfo {
     private int reps;
     private double kg;
     private LocalTime rest;
+    @Column(name = "set_volume")
+    private double setVolume;
 
     public ExerciseInfo() {}
     public ExerciseInfo(int set_number, int reps, double kg, LocalTime rest) {
@@ -19,6 +21,7 @@ public class ExerciseInfo {
         this.reps = reps;
         this.kg = kg;
         this.rest = rest;
+        this.setVolume = reps * kg;
 
     }
 }
