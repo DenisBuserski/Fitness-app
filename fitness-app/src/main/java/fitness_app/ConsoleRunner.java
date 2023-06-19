@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Component
@@ -26,9 +28,7 @@ public class ConsoleRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         User user = this.userService.createUser("test-username", "test-password", "test_email@test.com", UserType.CLIENT, "test-firstName", "test-lastName", 20);
         Diary diary = this.userService.createDiary("test-diary", user);
-        Workout workout = this.userService.createWorkout("test-workout", Exercise.SQUAT);
-        // TODO
-        // Correct Workout constructor
+        Workout workout = this.userService.createWorkout(LocalDate.of(2000, 1, 1), DayOfWeek.MONDAY, LocalTime.now(), LocalTime.now(), "test-workout", Exercise.SQUAT, "test-goal", 200);
         this.userService.addWorkout(diary, workout);
 
         ExerciseInfo exerciseInfo = this.userService.createExerciseInfo(1, 10, 100, LocalTime.now());

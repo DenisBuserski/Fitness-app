@@ -18,7 +18,10 @@ import fitness_app.repositories.WorkoutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -65,8 +68,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Workout createWorkout(String name, Exercise exercise) {
-        Workout workout = new Workout(name, exercise);
+    public Workout createWorkout(LocalDate date, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, String name, Exercise exercise, String goal, double totalVolume) {
+        Workout workout = new Workout(date, dayOfWeek, startTime, endTime, name, exercise, goal, totalVolume);
         this.workoutRepository.save(workout);
         return workout;
     }
